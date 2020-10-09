@@ -26,7 +26,18 @@ function keyUp(e) {
     keys[e.key] = false;
 }
 
+function moveLines() {
+    let lines = document.querySelectorAll('.lines');
+
+    lines.forEach( func(val){
+
+    })
+}
+
 function gamePlay() {
+
+    moveLines();
+
     if (player.start) {
         window.requestAnimationFrame(gamePlay);
     }
@@ -34,10 +45,11 @@ function gamePlay() {
     let car = document.querySelector('.car')
     let road = gameArea.getBoundingClientRect();
 
-    if (keys.ArrowUp) {
+
+    if (keys.ArrowUp && player.y > road.top + 70) {
         player.y -= player.speed;
     }
-    if (keys.ArrowDown  ) {
+    if (keys.ArrowDown && player.y < (road.bottom - 70)) {
         player.y += player.speed;
     }
     if (keys.ArrowRight && player.x < (road.width-50)) {
@@ -60,7 +72,14 @@ function startGame() {
   //calls the gamePlay
   window.requestAnimationFrame(gamePlay);
 
-
+  for (let i=0; i < 7; i++) {
+      let roadLine = document.createElement('div');
+      roadLine.setAttribute('class', 'lines');
+      roadLine.y = (x*150);
+      roadLine.style.top = (roadLine.y +'px');
+      gameArea.appendChild(roadLine);
+  }
+  
   let car = document.createElement("div");
   car.setAttribute("class", "car");
   car.innerText = "Car";
