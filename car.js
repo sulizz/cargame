@@ -15,7 +15,7 @@ document.addEventListener('keyup', keyUp);
 
 function keyDown(e) {
     e.preventDefault();
-    keys[e.jey] = true;
+    keys[e.key] = true;
 }
 function keyUp(e) {
     e.preventDefault();
