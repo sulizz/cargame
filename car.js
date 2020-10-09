@@ -32,18 +32,19 @@ function gamePlay() {
     }
 
     let car = document.querySelector('.car')
+    let road = gameArea.getBoundingClientRect();
 
     if (keys.ArrowUp) {
         player.y -= player.speed;
     }
-    if (keys.ArrowDown) {
+    if (keys.ArrowDown  ) {
         player.y += player.speed;
     }
-    if (keys.ArrowRight) {
+    if (keys.ArrowRight && player.x < (road.width-50)) {
         player.x += player.speed;
     }
-    if (keys.ArrowLeft) {
-        player.x -= player.speed;
+    if (keys.ArrowLeft && player.x > 0) {
+      player.x -= player.speed;
     }
 
     car.style.top = player.y + 'px';

@@ -12,6 +12,14 @@
     height: 70px;
     background: red;
     position: absolute;
-    left: 50px;
     bottom: 120px;
+}
+
+.gameArea {
+    width: 400px;
+    height: 100vh;
+    background-color:#2e3131;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
 }
