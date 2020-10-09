@@ -9,8 +9,6 @@ startScreen.addEventListener('click', startGame);
 
 //keys
 const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false }
-
-//
 let player = { speed: 5 };
 
 document.addEventListener('keydown', keyDown);
@@ -36,10 +34,10 @@ function gamePlay() {
     let car = document.querySelector('.car')
 
     if (keys.ArrowUp) {
-        player.y += 5;
+        player.y -= player.speed;
     }
     if (keys.ArrowDown) {
-        player.y -= player.speed;
+        player.y += player.speed;
     }
     if (keys.ArrowRight) {
         player.x += player.speed;
@@ -61,10 +59,11 @@ function startGame() {
   //calls the gamePlay
   window.requestAnimationFrame(gamePlay);
 
-  //adding a div using js
+
   let car = document.createElement("div");
   car.setAttribute("class", "car");
   car.innerText = "Car";
+  // add a car div inside startscreen
   gameArea.appendChild(car);
 
   player.x = car.offsetLeft;
