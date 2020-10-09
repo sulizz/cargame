@@ -29,8 +29,13 @@ function keyUp(e) {
 function moveLines() {
     let lines = document.querySelectorAll('.lines');
 
-    lines.forEach( func(val){
+    lines.forEach(function(val) {
 
+        if(val.y >=850) {
+            val.y -= 750
+        }
+        val.y += player.speed;
+        val.style.top = val.y + 'px';
     })
 }
 
@@ -72,12 +77,24 @@ function startGame() {
   //calls the gamePlay
   window.requestAnimationFrame(gamePlay);
 
+  //generate lines
   for (let i=0; i < 7; i++) {
       let roadLine = document.createElement('div');
       roadLine.setAttribute('class', 'lines');
-      roadLine.y = (x*150);
+      roadLine.y = (i*150);
       roadLine.style.top = (roadLine.y +'px');
       gameArea.appendChild(roadLine);
+  }
+  
+  //generate cars
+  for (let i=0; i < 5; i++) {
+      let enemyCar = document.createElement('div');
+      enemyCar.setAttribute("class", "enemy-car");
+      enemyCar.y = i * 150;
+      enemyCar.style.top = enemyCar.y + "px";
+      enemyCar.style.background = 'blue';
+      enemyCar.style.left = Math.floor(Math.random() * 350) +'px';
+      gameArea.appendChild(enemyCar);
   }
   
   let car = document.createElement("div");
@@ -88,4 +105,7 @@ function startGame() {
 
   player.x = car.offsetLeft;
   player.y = car.offsetTop;
+
+
+
 } 
