@@ -19,7 +19,7 @@ function keyDown(e) {
 }
 function keyUp(e) {
     e.preventDefault();
-    keys[e.jey] = false;
+    keys[e.key] = false;
 
 }
 
