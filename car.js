@@ -39,6 +39,10 @@ function isCollide(car, enemyCar) {
     
 }
 
+function gameOver() {
+    player.start = false;
+}
+
 function moveLines() {
     let lines = document.querySelectorAll('.lines');
 
@@ -57,7 +61,8 @@ function moveEnemyCar(car) {
     enemyCar.forEach(function(val) {
 
         if(isCollide(car, val)) {
-            console.log('Collision');
+            // console.log('Collision');
+            gameOver();
         }
 
         if(val.y >=850) {
