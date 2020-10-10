@@ -7,6 +7,18 @@
     display: none;
 }
 
+.score {
+    position: absolute;
+    top:15px;
+    left: 40px;
+    background-color: blue;
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 5px #777;
+}
+
 .car {
     width: 50px;
     height: 70px;
