@@ -41,6 +41,7 @@ function isCollide(car, enemyCar) {
 
 function gameOver() {
     player.start = false;
+    startScreen.classList.remove("hide");
 }
 
 function moveLines() {
@@ -109,44 +110,43 @@ function gamePlay() {
 }
 
 function startGame() {
-  gameArea.classList.remove("hide");
-  startScreen.classList.add("hide");
+    
+    startScreen.classList.add("hide");
+    gameArea.innerHTML='';
 
-  player.start = true;
-  player.score = 0;
-  //calls the gamePlay
-  window.requestAnimationFrame(gamePlay);
+    player.start = true;
+    player.score = 0;
+    //calls the gamePlay
+    window.requestAnimationFrame(gamePlay);
 
-  //generate lines
-  for (let i=0; i < 100; i++) {
-      let roadLine = document.createElement('div');
-      roadLine.setAttribute('class', 'lines');
-      roadLine.y = (i + 1) * 150 * -1;
-      roadLine.style.top = (roadLine.y +'px');
-      gameArea.appendChild(roadLine);
-  }
+    //generate lines
+    for (let i=0; i < 100; i++) {
+        let roadLine = document.createElement('div');
+        roadLine.setAttribute('class', 'lines');
+        roadLine.y = (i + 1) * 150 * -1;
+        roadLine.style.top = (roadLine.y +'px');
+        gameArea.appendChild(roadLine);
+    }
+    
+    //generate cars
+    for (let i=0; i < 6; i++) {
+        let enemyCar = document.createElement('div');
+        enemyCar.setAttribute("class", "enemy-car");
+        enemyCar.y = ((i+1)*350) * -1;
+        //   enemyCar.y = (i*150);
+        enemyCar.style.top = enemyCar.y + "px";
+        enemyCar.style.background = 'blue';
+        enemyCar.style.left = Math.floor(Math.random() * 350) +'px';
+        gameArea.appendChild(enemyCar);
+    }
   
-  //generate cars
-  for (let i=0; i < 6; i++) {
-      let enemyCar = document.createElement('div');
-      enemyCar.setAttribute("class", "enemy-car");
-      enemyCar.y = ((i+1)*350) * -1;
-    //   enemyCar.y = (i*150);
-      enemyCar.style.top = enemyCar.y + "px";
-      enemyCar.style.background = 'blue';
-      enemyCar.style.left = Math.floor(Math.random() * 350) +'px';
-      gameArea.appendChild(enemyCar);
-  }
-  
-  let car = document.createElement("div");
-  car.setAttribute("class", "car");
-  car.innerText = "Car";
-  // add a car div inside startscreen
-  gameArea.appendChild(car);
+    let car = document.createElement("div");
+    car.setAttribute("class", "car");
+    car.innerText = "Car";
+    // add a car div inside startscreen
+    gameArea.appendChild(car);
 
-  player.x = car.offsetLeft;
-  player.y = car.offsetTop;
-
-
+    player.x = car.offsetLeft;
+    player.y = car.offsetTop;
 
 } 
