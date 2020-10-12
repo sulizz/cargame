@@ -135,9 +135,7 @@ function startGame() {
         let enemyCar = document.createElement('div');
         enemyCar.setAttribute("class", "enemy-car");
         enemyCar.y = ((i+1)*350) * -1;
-        //   enemyCar.y = (i*150);
         enemyCar.style.top = enemyCar.y + "px";
-        // enemyCar.style.backgroundColor = 'blue';
         enemyCar.style.left = Math.floor(Math.random() * 350) +'px';
         gameArea.appendChild(enemyCar);
     }
@@ -153,18 +151,24 @@ function startGame() {
 
 } 
 
-// let count = 0;
-// let playPauseBTN = document.getElementById('playPauseBTN');
-// function playPause() {
-//     let audio = document.getElementById('audio');
-//     if (count == 0) {
-//         count = 1;
-//         // audio.play();
-//         playPauseBTN.innerHTML = 'Pause &#9208';
-//     } else {
-//         count = 0;
-//         audio.pause();
-//         playPauseBTN.innerHTML = 'Play &#9658';
-//     }
+let audio, playbtn, seek_bar;
+function initAudioPlayer() {
+    audio = new Audio();
+    audio.src = 'music/music.wav';
+    audio.loop = true;
+    audio.play();
+    playbtn = document.getElementById('playPauseBTN')
+    playbtn.addEventListener('click', playpause);
 
-// }
+    function playpause() {
+        if (audio.paused) {
+            audio.play();
+            playbtn.innerHTML = 'Pause &#9208';
+        } else {
+            audio.pause();
+            playbtn.innerHTML = 'Play &#9658';
+        }
+
+    }
+}
+window.addEventListener('load', initAudioPlayer);
