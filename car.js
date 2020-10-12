@@ -152,3 +152,19 @@ function startGame() {
     player.y = car.offsetTop;
 
 } 
+
+// let count = 0;
+// let playPauseBTN = document.getElementById('playPauseBTN');
+// function playPause() {
+//     let audio = document.getElementById('audio');
+//     if (count == 0) {
+//         count = 1;
+//         // audio.play();
+//         playPauseBTN.innerHTML = 'Pause &#9208';
+//     } else {
+//         count = 0;
+//         audio.pause();
+//         playPauseBTN.innerHTML = 'Play &#9658';
+//     }
+
+// }

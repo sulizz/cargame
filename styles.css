@@ -41,6 +41,18 @@
     position: absolute;
     top:15px;
     left: 40px;
+    background: linear-gradient(to right bottom, #273c75, #079992);
+    width: 100px;
+    /* height: 70px; */
+    line-height: 70px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 5px #777;
+}
+.music {
+    position: absolute;
+    top:15px;
+    left: 40px;
     background-color: blue;
     width: 100px;
     /* height: 70px; */
@@ -91,4 +103,19 @@
     transform: scaleY(-1);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+button#playPauseBTN {
+    position: absolute;
+    left: 70%;
+    top:15px;
+    z-index: 99;
+    padding: 10px 25px;
+    font-size: 22px;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(to right bottom, #273c75, #079992);
+    box-shadow: 0 5px 5px #777;
+    border: none;
 }
