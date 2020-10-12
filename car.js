@@ -42,6 +42,7 @@ function isCollide(car, enemyCar) {
 function gameOver() {
     player.start = false;
     startScreen.classList.remove("hide");
+    startScreen.innerHTML = "Game Over <br> Final Score: " + player.score + " <br> Press Here to ReStart"
 }
 
 function moveLines() {
@@ -90,7 +91,7 @@ function gamePlay() {
         if (keys.ArrowUp && player.y > road.top + 70) {
           player.y -= player.speed;
         }
-        if (keys.ArrowDown && player.y < road.bottom - 70) {
+        if (keys.ArrowDown && player.y < road.bottom - 85) {
           player.y += player.speed;
         }
         if (keys.ArrowRight && player.x < road.width - 50) {
@@ -105,7 +106,8 @@ function gamePlay() {
 
          window.requestAnimationFrame(gamePlay);
          player.score++;
-         score.innerHTML = "Score: " + player.score;
+         let playerScore = player.score -1;
+        score.innerHTML = "Score: " + playerScore;
     }    
 }
 
@@ -135,14 +137,14 @@ function startGame() {
         enemyCar.y = ((i+1)*350) * -1;
         //   enemyCar.y = (i*150);
         enemyCar.style.top = enemyCar.y + "px";
-        enemyCar.style.background = 'blue';
+        // enemyCar.style.backgroundColor = 'blue';
         enemyCar.style.left = Math.floor(Math.random() * 350) +'px';
         gameArea.appendChild(enemyCar);
     }
   
     let car = document.createElement("div");
     car.setAttribute("class", "car");
-    car.innerText = "Car";
+
     // add a car div inside startscreen
     gameArea.appendChild(car);
 
