@@ -43,7 +43,8 @@
     left: 40px;
     background: linear-gradient(to right bottom, #273c75, #079992);
     width: 100px;
-    /* height: 70px; */
+    padding-left: 20px;
+    padding-right: 20px;
     line-height: 70px;
     text-align: center;
     color: white;

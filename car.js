@@ -71,7 +71,10 @@ function moveEnemyCar(car) {
             val.y = -300;
             val.style.left = Math.floor(Math.random() * 350) + "px";
         }
-        val.y += player.speed;
+
+        setInterval(function() {
+            val.y += 0.5;
+        },5000);
         val.style.top = val.y + 'px';
     })
 }
