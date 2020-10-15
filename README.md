@@ -11,7 +11,7 @@
 <a href="https://sulizz.github.io/cargame/">Live Demo</a>
 </p>
 
-# Technologies Used 
+### Technologies Used 
 * JavaScript 
 * HTML5
 * CSS3
