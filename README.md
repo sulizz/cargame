@@ -2,7 +2,7 @@
    <br>
    <img src="images/project.png" alt="SmashCar" width="200">
    <br>
-   JobieWalkie</a>
+   SmashCar</a>
    <br>
 </h1>
 # About 
